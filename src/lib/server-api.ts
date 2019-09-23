@@ -26,8 +26,6 @@ const apiFetchArticles = async (page: number, search?: string, limit?: number): 
   if (search) {
     url = `${url}&filter=${search}`;
   }
-
-  console.log(url);
   var response = await fetch(url);
   if (!response.ok) {
     let errorResponse: ResponseError = {
@@ -78,14 +76,9 @@ export const apiUserLogin = async (loginData: UserLoginData): Promise<any> => {
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'text/html'
-      // 'Accept': 'application/json',
-      // 'Access-Control-Allow-Origin': '*',
-      // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      // 'Access-Control-Allow-Headers': 'Origin, Content-Type'
     },
     body: JSON.stringify(loginData)
   });
-  // console.log(response);
   if (!response.ok) {
     let errorResponse: ResponseError = {
       errorMessage: response.statusText,
@@ -93,7 +86,6 @@ export const apiUserLogin = async (loginData: UserLoginData): Promise<any> => {
     return errorResponse;
   }
   let rawJson = await response.json();
-  console.log(rawJson);
   let results: UserLoginSuccess = {
     authToken: rawJson.auth_token,
     admin: rawJson.admin,

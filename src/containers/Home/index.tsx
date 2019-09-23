@@ -28,13 +28,11 @@ const HomeContainer: React.FC<Props> = props => {
   if (props.isLogedIn) {
     onFavourite = () => {};
   }
-  console.log(props.searchText);
   return (
     <div id="HomeView">
       <Layout>
         <BottomScrollListener
           onBottom={() => {
-            console.log("load more");
             props.dispatch(fetchArticles(++page));
           }}
         />

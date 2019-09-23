@@ -23,7 +23,6 @@ class HomePage extends React.Component<{ theme }, {}> {
   }
 
   render() {
-    console.log(this.props.theme);
     return (
       <ThemeProvider theme={getTheme(this.props.theme)}>
         <HomeContainer />

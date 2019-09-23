@@ -91,7 +91,6 @@ export const login = (): any => {
       email: selectEmail(state),
       password: selectPassword(state),
     };
-    console.log(loginData);
     dispatch({
       type: USER_LOGIN,
       payload: loginData,
