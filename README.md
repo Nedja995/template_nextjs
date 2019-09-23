@@ -21,3 +21,10 @@ npm run dev
 ```
 npm run test
 ```
+
+#### Tips
+- Localized strings in `src/config/i18n.ts'
+
+#### TODO
+- Zeit's service NOW don't work with current project structure it cannot find `src`
+- Move localisation to json file
