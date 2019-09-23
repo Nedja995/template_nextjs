@@ -1,0 +1,51 @@
+{
+  "name": "template_nextjs",
+  "version": "1.0.0",
+  "description": "Template Web App NextJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest src",
+    "dev": "next src",
+    "build": "next build src",
+    "start": "next start src"
+  },
+  "author": "Nedeljko Pejašinović",
+  "license": "ISC",
+  "dependencies": {
+    "identity-obj-proxy": "^3.0.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.0.6",
+    "next-images": "^1.2.0",
+    "re-reselect": "^3.4.0",
+    "react": "^16.9.0",
+    "react-bottom-scroll-listener": "^3.0.0",
+    "react-dom": "^16.9.0",
+    "react-localization": "^1.0.15",
+    "redux-test-utils": "^0.3.0",
+    "reselect": "^4.0.0",
+    "styled-components": "^4.3.2",
+    "styled-components-grid": "^2.2.2",
+    "styled-icons": "^8.4.2",
+    "styled-react-modal": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.5",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/styled-components": "^4.1.19",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-styled-components": "^1.10.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest": "^24.9.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-redux": "^7.1.1",
+    "react-test-renderer": "^16.9.0",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "typescript": "^3.6.3"
+  }
+}
