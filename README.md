@@ -15,7 +15,7 @@
 
 1. Configure variables in `./src/config/env/`
 
-- Setting `FAKE_SERVER=true` for quick run to test ui or use [template_server](https://github.com/Nedja995/template_server)
+- Set `FAKE_SERVER=true` for quick run to test ui or use [template_server](https://github.com/Nedja995/template_server)
 
 2. Install the dependencies
 
