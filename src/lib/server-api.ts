@@ -7,10 +7,11 @@ import UserSignupData,
 } from '../@types/user';
 import ResponseError from '../@types/network';
 import { PaginationDto } from '../@types/PaginationDto';
+import constants from '../config/constants';
 
-const BASE_URL = "http://localhost:3006/v1";
+const BASE_URL = constants.SERVER_URL;
 const ARTICLES_URL = `${BASE_URL}/foodArticles`;
-const REGISTER_URL = `${BASE_URL}/user/register`
+const REGISTER_URL = `${BASE_URL}/users/register`
 const LOGIN_URL = `${BASE_URL}/users/login`;
 
 // const makeQuery = params => Object.keys(params)
@@ -18,6 +19,15 @@ const LOGIN_URL = `${BASE_URL}/users/login`;
 //   .join('&');[];
 
 const apiFetchArticles = async (page: number, search?: string, limit?: number): Promise<any> => {
+  if (constants.FAKE_SERVER) {
+    console.warn("USING FAKE_SERVER");
+    // RETURN SAMPLE DATA
+    const sampleData = await require('./sample-data');
+    let results: ArticlesResponse = {
+      articles: sampleData.sampleArticles
+    };
+    return results;
+  }
   var url: string = `${ARTICLES_URL}`;
   if (!limit) {
     limit = 20;
@@ -26,7 +36,16 @@ const apiFetchArticles = async (page: number, search?: string, limit?: number): 
   if (search) {
     url = `${url}&filter=${search}`;
   }
-  var response = await fetch(url);
+  var response: any = { ok: false, statusText: 'error' };
+  try {
+    response = await fetch(url);
+  } catch (e) {
+    console.error(e.message);
+    let errorResponse: ResponseError = {
+      errorMessage: e.message,
+    }
+  }
+
   if (!response.ok) {
     let errorResponse: ResponseError = {
       errorMessage: response.statusText,

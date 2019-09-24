@@ -5,6 +5,7 @@ import {
   ARTICLES_SET_SEARCH_TEXT,
   SetSearchTextType,
   selectSearchText,
+  ARTICLES_FETCHING_FAILED,
 } from '../reducers/article';
 import apiFetchArticles from '../lib/server-api';
 
@@ -39,6 +40,13 @@ export const fetchArticles = (page: number, search?: string, limit?: number): an
       page,
     })
     return apiFetchArticles(page, searchText, limit).then(response => {
+      if (!!response.errorMessage) {
+        dispatch({
+          type: ARTICLES_FETCHING_FAILED,
+          message: response.errorMessage,
+        })
+        return [];
+      }
       dispatch({
         type: ARTICLES_FETCHING_SUCCEEDED,
         payload: response,
